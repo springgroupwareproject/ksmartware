@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html</td> charset=UTF-8" />
+<title>leaveCategoryList.html</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="row">
+	<div class="col-2" style="padding-right:20px; border-right: 1px solid #ccc;">
+		<h1>글</h1>
+		<h1>로</h1>
+		<h1>벌</h1>
+		<h1>네</h1>
+		<h1>비</h1>
+		<h1>게</h1>
+		<h1>이</h1>
+		<h1>션</h1>
+		<h1>바</h1>
+	</div>
+	<form>
+		<!-- 관리자 인사 정보 설정-->
+		<div class="col-10" style="padding-right:600px; border-right: 1px solid #ccc;">
+			<!-- 인사 정보 사용여부 설정 메뉴-->
+			<div>
+				<h4>인사 정보 설정</h4>
+				<br>
+				<h6>사용 인사 정보 설정</h6>
+				<div>인사 정보 중 추가적으로 설정하여 사용할 정보를 설정합니다.</div>
+				<br>
+				<!-- 조직원 인사 정보 표기 설정 체크박스 -->
+				<div>
+					<input type="checkbox" id="genderCheckBox" checked="checked">성별
+				</div>
+				<div>
+					<input type="checkbox" id="marriageCheckBox" checked="checked">혼인여부
+				</div>
+				<div>
+					<input type="checkbox" id="militaryCheckBox" checked="checked">병역
+				</div>
+			</div>
+			<hr>
+			<!-- 필수 입력 인사 정보 설정 -->
+			<div>
+				<h4>필수 입력 인사 정보 설정</h4>
+				<br>
+				<h6>인사 정보 중 필수적으로 입력해야 할 정보를 설정합니다.</h6>
+				<br>
+				<!-- 조직원 필수 입력 정보 설정 체크박스 -->
+				<div>
+					<input type="checkbox" id="memberJoinDayCheckBox" checked="checked">조직원 입사일 필수 입력
+				</div>
+				<div>
+					<input type="checkbox" id="memberOutDayCheckBox" checked="checked">조직원 상태 '퇴직'으로 변경 시, 퇴사일 필수 입력
+				</div>
+			</div>
+			<hr>		
+			<!-- 퇴사자 노출 메뉴 -->
+			<div>
+				<h4>조직원 정보 노출 설정</h4>
+				<br>
+				<h6>인사 관리 메뉴 중에서 조직도 관리 및 조직원 정보 관리에서 퇴사자를 노출할 지 여부를 설정합니다.</h6>
+				<br>
+				<div>
+					<input type="checkbox" id="memberOutCheckBox" checked="checked">퇴사자 노출 설정
+				</div>
+			</div>
+			<hr>
+		</div>
+		<button>저장</button>
+	</form>
+</div>	
+
+
+</body>
+</html>

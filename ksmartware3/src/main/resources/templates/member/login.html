@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style type="text/css">
+ /* margin:10px 10px 10px 10px; [상자위치] 위쪽 오른쪽 아래쪽 왼쪽 마진속성 한번에 주기 */
+ /* padding:10px 10px 10px 10px; [글상자안의여백공간] 위 오른쪽 아래쪽 왼쪽 패딩속성 한번에 주기 */
+.login-box { border:1px solid; width:250px; height:25px; margin:5px 10px 10px 5px;  } /* 로그인 박스 */
+</style>
+<title>index.jsp</title>
+<script>
+$(document).ready(function(){
+	$('#loginBtn').click(function(){
+		console.log("loginBtn 클릭!");
+		$('#loginForm').submit();
+	});
+});
+
+</script>
+</head>
+<body>
+	<h1>INDEX</h1>
+	<!-- 상단메뉴 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+	<ul th:if="${session.loginMember == null}">
+		<li>
+			<a th:href="@{'/login'}">로그인</a>
+		</li>
+		<li>
+			<a th:href="@{'#'}">아이디 찾기</a>
+		</li>
+		<li>
+			<a th:href="@{'#'}">비밀번호 찾기</a>
+		</li>
+	</ul>
+	<ul th:if="${session.loginMember != null}">
+		<li>
+			<a th:href="@{/logout}">로그아웃</a>
+		</li>
+		<li>
+			<a th:href="@{'#'}">내 정보</a>
+		</li>
+	</ul>
+	<!-- 네비게이션바 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+	<div class="row">
+		<div class="col-2" style="padding-right:20px; border-right: 7px solid #ccc;">
+			<h1>글</h1>
+			<h1>로</h1>
+			<h1>벌</h1>
+			<h1>네</h1>
+			<h1>비</h1>
+			<h1>게</h1>
+			<h1>이</h1>
+			<h1>션</h1>
+			<h1>바</h1>
+		</div>
+	<!-- 왼쪽 본문 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+		<div class="col-10" style="padding-right:20px; border-right: 1px solid #ccc;">
+			<h1>로그인</h1>
+			<div>
+				<form th:action="@{/login}" method="post">
+			        <input class="login-box" type="text" id="username" name="memberId" autofocus="autofocus" placeholder="아이디를 입력하시오"/> <br />
+			        <input class="login-box" type="password" id="password" name="memberPw" placeholder="비밀번호를 입력하시오"/> <br />
+			        <input class="login-box" type="submit" value="Login"/>
+			    </form>
+			    <div>
+					<a th:href="@{'/'}">index 바로가기</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
