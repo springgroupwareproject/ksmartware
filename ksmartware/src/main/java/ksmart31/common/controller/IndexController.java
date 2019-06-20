@@ -1,4 +1,4 @@
-package ksmart31.team00.common.controller;
+package ksmart31.common.controller;
 
 import javax.servlet.http.HttpSession;
 

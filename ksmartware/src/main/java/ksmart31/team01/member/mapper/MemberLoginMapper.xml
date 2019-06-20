@@ -11,6 +11,7 @@
 		<result column="member_employee_code" property="memberEmployeeCode"/>
 		<result column="department_name" property="departmentName"/>
 		<result column="member_position_name" property="memberPositionName"/>
+		<result column="member_level_title" property="memberLevelTitle"/>
 	</resultMap>
 	<select id="selectMemberForLogin" parameterType="ksmart31.team01.member.domain.Member" resultMap="selectMemberForLogin">
 		SELECT 
@@ -18,7 +19,9 @@
 			member_name,
 			member_employee_code,
 			department_name,
-			member_position_name
+			member_position_name,
+			member_level_title
+			
 		FROM 
 			member
 		WHERE 
