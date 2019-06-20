@@ -1,0 +1,144 @@
+<div th:fragment="inLeft">
+<!-- page-wrap시작  -->
+<div class="page-wrap">
+	<div class="app-sidebar colored">
+		<div class="sidebar-header">
+			<a class="header-brand" href="/">
+				<div class="logo-img">
+					<img src="src/img/brand-white.svg" class="header-brand-img" alt="lavalite">
+				</div> <span class="text">KsmartWare</span>
+			</a>
+			<button type="button" class="nav-toggle">
+				<i data-toggle="expanded" class="ik ik-toggle-right toggle-icon"></i>
+			</button>
+			<button id="sidebarClose" class="nav-close">
+				<i class="ik ik-x"></i>
+			</button>
+		</div>
+		<div class="sidebar-content">
+			<div class="nav-container">
+				<nav id="main-menu-navigation" class="navigation-main">
+					<div class="nav-item has-sub">
+						<a href="javascript:void(0)"><i class="ik ik-layers"></i><span>관리자</span></a>
+						<div class="submenu-content">
+							<div class="nav-item has-sub">
+								<a href="javascript:void(0)" class="menu-item">조직 관리</a>
+								<div class="submenu-content">
+									<a href="javascript:void(0)" class="menu-item">조직 설정</a> 
+									<a href="javascript:void(0)" class="menu-item">북마크 관리</a>
+								</div>
+							</div>
+							<div class="nav-item has-sub">
+								<a href="javascript:void(0)" class="menu-item">인사 관리</a>
+								<div class="submenu-content">
+									<a href="javascript:void(0)" class="menu-item">인사 설정</a> 
+									<a href="javascript:void(0)" class="menu-item">조직도/조직원 관리</a> 
+									<a href="javascript:void(0)" class="menu-item">휴가 종류 관리</a> 
+									<a href="javascript:void(0)" class="menu-item">휴가 내역 관리</a> 
+									<a href="javascript:void(0)" class="menu-item">증명서 발급 관리</a>
+								</div>
+							</div>
+							<div class="nav-item has-sub">
+								<a href="javascript:void(0)" class="menu-item">재무 관리</a>
+								<div class="submenu-content">
+								<a href="javascript:void(0)" class="menu-item">지출 내역 관리</a> 
+								<a href="javascript:void(0)" class="menu-item">구매 내역 관리</a>
+								</div>
+							</div>
+							<div class="nav-item has-sub">
+								<a href="javascript:void(0)" class="menu-item">문서양식 관리</a>
+								<div class="submenu-content">
+									<a href="javascript:void(0)" class="menu-item">공통 문서양식 관리</a> 
+									<a href="javascript:void(0)" class="menu-item">공통 결재선 관리</a> 
+									<a href="javascript:void(0)" class="menu-item">제공 문서양식 도입</a>
+								</div>
+							</div>
+							<div class="nav-item has-sub">
+								<a href="javascript:void(0)" class="menu-item">문서 통합 관리</a>
+								<div class="submenu-content">
+									<a href="javascript:void(0)" class="menu-item">결재 문서 관리</a> 
+									<a href="javascript:void(0)" class="menu-item">결재 문서 상세 데이터 조회</a>
+								</div>
+							</div>
+							<div class="nav-item has-sub">
+								<a href="javascript:void(0)" class="menu-item">협업 관리</a>
+								<div class="submenu-content">
+									<a href="javascript:void(0)" class="menu-item">게시판 관리</a>
+								</div>
+							</div>
+							<div class="nav-item has-sub">
+								<a href="javascript:void(0)" class="menu-item">보안 관리</a>
+								<div class="submenu-content">
+									<a href="javascript:void(0)" class="menu-item">관리자 권한 관리</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<hr>
+					<div class="nav-item has-sub">
+						<a href="javascript:void(0)"><i class="ik ik-layers"></i><span>문서 기안</span></a>
+						<div class="submenu-content">
+							<a href="pages/ui/alerts.html" class="menu-item">최근 승인 문서</a> 
+							<a href="pages/ui/alerts.html" class="menu-item">문서양식</a> 
+							<a href="pages/ui/alerts.html" class="menu-item">임시문서</a> 
+							<a href="pages/ui/alerts.html" class="menu-item">개인 문서 양식 관리</a>
+						</div>
+					</div>
+					<hr>
+					<div class="nav-item">
+						<a href="pages/navbar.html"><i class="ik ik-menu"></i><span>문서 결재</span> <span class="badge badge-danger">150+</span></a>
+					</div>
+					<hr>
+					<div class="nav-item has-sub">
+						<a href="javascript:void(0)"><i class="ik ik-layers"></i><span>나의 문서함</span></a>
+						<div class="submenu-content">
+							<a href="pages/ui/alerts.html" class="menu-item">기안문서</a> 
+							<a href="pages/ui/alerts.html" class="menu-item">결재완료문서</a> 
+							<a href="pages/ui/alerts.html" class="menu-item">수신문서</a> 
+							<a href="pages/ui/alerts.html" class="menu-item">회람문서</a> 
+							<a href="pages/ui/alerts.html" class="menu-item">전결문서</a> 
+							<a href="pages/ui/alerts.html" class="menu-item">첨부파일</a>
+						</div>
+					</div>
+					<div class="nav-item">
+						<a href="pages/navbar.html"><i class="ik ik-menu"></i><span>문서 상세내역 조회</span></a>
+					</div>
+					<hr>
+					<div class="nav-item has-sub">
+						<a href="javascript:void(0)"><i class="ik ik-layers"></i><span>나의 정보</span></a>
+						<div class="submenu-content">
+							<a href="pages/ui/alerts.html" class="menu-item">나의 인사 정보</a> 
+							<a href="pages/ui/alerts.html" class="menu-item">나의 휴가 정보</a> 
+							<a href="pages/ui/alerts.html" class="menu-item">나의 지출 정보</a> 
+							<a href="pages/ui/alerts.html" class="menu-item">나의 구매 정보</a>
+						</div>
+					</div>
+					<div class="nav-item has-sub">
+						<a href="javascript:void(0)"><i class="ik ik-layers"></i><span>게시판</span></a>
+						<div class="submenu-content">
+							<a href="pages/ui/alerts.html" class="menu-item">전사공지</a> 
+							<a href="pages/ui/alerts.html" class="menu-item">전사규정</a> 
+							<a href="pages/ui/alerts.html" class="menu-item">전사자료</a> 
+							<a href="pages/ui/alerts.html" class="menu-item">사내소식</a> 
+							<a href="pages/ui/alerts.html" class="menu-item">정보공유</a>
+						</div>
+					</div>
+					<div class="nav-item">
+						<a href="pages/navbar.html"><i class="ik ik-menu"></i><span>조직원 정보</span></a>
+					</div>
+					<div class="nav-item">
+						<a href="pages/navbar.html"><i class="ik ik-menu"></i><span>공통 연락처</span></a>
+					</div>
+					<div class="nav-item has-sub">
+						<a href="javascript:void(0)"><i class="ik ik-layers"></i><span>증명서 발급</span></a>
+						<div class="submenu-content">
+							<a href="pages/ui/alerts.html" class="menu-item">증명서 신청</a> 
+							<a href="pages/ui/alerts.html" class="menu-item">신청내역</a>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+
+</div>	
