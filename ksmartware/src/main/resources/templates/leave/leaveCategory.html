@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html</td> charset=UTF-8" />
+<title>leaveCategory.html</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<h4>휴가 종류</h4>
+	<div class="col-3" style="padding-right:20px; border-right: 1px solid #ccc;" th:fragment="copy">
+		<!-- 휴가 카테고리 네비바 -->
+		<div th:each="list : ${leaveCategoryList}">
+			<button class="leaveCategoryButton btn btn-outline-dark" th:id="${list.leaveCategoryCode}" th:text="${list.leaveCategorySort}" th:value="${list.leaveCategoryCode}"></button>
+		</div>
+	</div>
+</body>
+</html>
