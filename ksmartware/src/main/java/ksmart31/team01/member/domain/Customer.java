@@ -6,14 +6,13 @@ public class Customer {
 	public String customerName;
 	public String customerPhone;
 	public String customerCorporateRegistrationNumber;
-	public String customerAddress;
-	public String customerRegistrationDate;
+	public String customerAddress;	
 	public String customerBank;
 	public String customerAccountHolder;
 	public String customerAccountNumber;
 	public String customerUse;
-	public String memberId;
 	public String customerDate;
+	public String memberId;
 	public String getCustomerCode() {
 		return customerCode;
 	}
@@ -44,12 +43,6 @@ public class Customer {
 	public void setCustomerAddress(String customerAddress) {
 		this.customerAddress = customerAddress;
 	}
-	public String getCustomerRegistrationDate() {
-		return customerRegistrationDate;
-	}
-	public void setCustomerRegistrationDate(String customerRegistrationDate) {
-		this.customerRegistrationDate = customerRegistrationDate;
-	}
 	public String getCustomerBank() {
 		return customerBank;
 	}
@@ -74,18 +67,26 @@ public class Customer {
 	public void setCustomerUse(String customerUse) {
 		this.customerUse = customerUse;
 	}
-	public String getMemberId() {
-		return memberId;
-	}
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
-	}
 	public String getCustomerDate() {
 		return customerDate;
 	}
 	public void setCustomerDate(String customerDate) {
 		this.customerDate = customerDate;
 	}
+	public String getMemberId() {
+		return memberId;
+	}
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
+	@Override
+	public String toString() {
+		return "Customer [customerCode=" + customerCode + ", customerName=" + customerName + ", customerPhone="
+				+ customerPhone + ", customerCorporateRegistrationNumber=" + customerCorporateRegistrationNumber
+				+ ", customerAddress=" + customerAddress + ", customerBank=" + customerBank + ", customerAccountHolder="
+				+ customerAccountHolder + ", customerAccountNumber=" + customerAccountNumber + ", customerUse="
+				+ customerUse + ", customerDate=" + customerDate + ", memberId=" + memberId + "]";
+	}	
 	
 	
 }

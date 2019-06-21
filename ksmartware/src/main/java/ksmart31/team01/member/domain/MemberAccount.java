@@ -8,6 +8,7 @@ public class MemberAccount {
 	public String memberAccountBank;
 	public String memberAccountNumber;
 	public String memberAccountDate;
+	public String registrationMemberId;
 	public String memberEmployeeCode;
 	public String departmentName;
 	public String memberPositionName;
@@ -47,6 +48,12 @@ public class MemberAccount {
 	public void setMemberAccountDate(String memberAccountDate) {
 		this.memberAccountDate = memberAccountDate;
 	}
+	public String getRegistrationMemberId() {
+		return registrationMemberId;
+	}
+	public void setRegistrationMemberId(String registrationMemberId) {
+		this.registrationMemberId = registrationMemberId;
+	}
 	public String getMemberEmployeeCode() {
 		return memberEmployeeCode;
 	}
@@ -64,6 +71,14 @@ public class MemberAccount {
 	}
 	public void setMemberPositionName(String memberPositionName) {
 		this.memberPositionName = memberPositionName;
+	}
+	@Override
+	public String toString() {
+		return "MemberAccount [memberAccountCode=" + memberAccountCode + ", memberName=" + memberName + ", memberId="
+				+ memberId + ", memberAccountBank=" + memberAccountBank + ", memberAccountNumber=" + memberAccountNumber
+				+ ", memberAccountDate=" + memberAccountDate + ", registrationMemberId=" + registrationMemberId
+				+ ", memberEmployeeCode=" + memberEmployeeCode + ", departmentName=" + departmentName
+				+ ", memberPositionName=" + memberPositionName + "]";
 	}
 	
 	

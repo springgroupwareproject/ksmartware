@@ -27,6 +27,15 @@
 		    <artifactId>tomcat-embed-jasper</artifactId>
 		    <version>8.0.53</version>
 		</dependency> -->
+		
+		<!-- StringUtils.countMatches()함수 사용 -->
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.8.1</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
