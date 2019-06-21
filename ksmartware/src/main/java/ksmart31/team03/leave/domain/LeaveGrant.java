@@ -6,7 +6,7 @@ public class LeaveGrant {
 	private String leaveCategorySort;
 	private int leaveGrantHour;
 	private int leaveGrantDay;
-	private String leaveGrantDaysReason;
+	private String leaveGrantReason;
 	private String leaveGrantDate;
 	private String memberEmployeeCode;
 	private String memberName;
@@ -43,10 +43,10 @@ public class LeaveGrant {
 		this.leaveGrantDay = leaveGrantDay;
 	}
 	public String getLeaveGrantDaysReason() {
-		return leaveGrantDaysReason;
+		return leaveGrantReason;
 	}
-	public void setLeaveGrantDaysReason(String leaveGrantDaysReason) {
-		this.leaveGrantDaysReason = leaveGrantDaysReason;
+	public void setLeaveGrantDaysReason(String leaveGrantReason) {
+		this.leaveGrantReason = leaveGrantReason;
 	}
 	public String getLeaveGrantDate() {
 		return leaveGrantDate;
@@ -82,7 +82,7 @@ public class LeaveGrant {
 	public String toString() {
 		return "LeaveGrant [leaveGrantCode=" + leaveGrantCode + ", memberId=" + memberId + ", leaveCategorySort="
 				+ leaveCategorySort + ", leaveGrantHour=" + leaveGrantHour + ", leaveGrantDay=" + leaveGrantDay
-				+ ", leaveGrantDaysReason=" + leaveGrantDaysReason + ", leaveGrantDate=" + leaveGrantDate
+				+ ", leaveGrantReason=" + leaveGrantReason + ", leaveGrantDate=" + leaveGrantDate
 				+ ", memberEmployeeCode=" + memberEmployeeCode + ", memberName=" + memberName + ", departmentName="
 				+ departmentName + ", memberPositionName=" + memberPositionName + "]";
 	}

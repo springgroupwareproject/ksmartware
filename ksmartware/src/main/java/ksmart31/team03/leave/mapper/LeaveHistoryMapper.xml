@@ -4,6 +4,7 @@
 	<resultMap type="ksmart31.team03.leave.domain.LeaveHistory" id="selectLeaveHistoryByMemberId">
 		<result column="leave_history_code" property="LeaveHistoryCode"/>
 		<result column="leave_category_sort" property="leaveCategorySort"/>
+		<result column="leave_category_code" property="leaveCategoryCode"/>
 		<result column="leave_history_grant_hour" property="leaveHistoryGrantHour"/>
 		<result column="leave_history_grant_day" property="leaveHistoryGrantDay"/>
 		<result column="leave_history_used_hour" property="leaveHistoryUsedHour"/>
@@ -15,6 +16,7 @@
 		SELECT 
 			leave_history_code,
 			leave_category_sort,
+			leave_category_code,
 			leave_history_grant_hour,
 			leave_history_grant_day,
 			leave_history_used_hour,
@@ -23,6 +25,7 @@
 			leave_history_remaining_day
 		FROM leave_history
 		WHERE member_id = #{memberID}
+		ORDER BY(SUBSTRING_INDEX(leave_category_code,'_',-1)+0)
 	</select>
 
 </mapper>

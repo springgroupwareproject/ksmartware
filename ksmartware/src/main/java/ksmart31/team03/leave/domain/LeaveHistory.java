@@ -4,6 +4,7 @@ public class LeaveHistory {
 	private String LeaveHistoryCode;
 	private String memberId;
 	private String leaveCategorySort;
+	private String leaveCategoryCode;
 	private int leaveHistoryGrantHour;
 	private int leaveHistoryGrantDay;
 	private int leaveHistoryUsedHour;
@@ -32,6 +33,12 @@ public class LeaveHistory {
 	}
 	public void setLeaveCategorySort(String leaveCategorySort) {
 		this.leaveCategorySort = leaveCategorySort;
+	}
+	public String getLeaveCategoryCode() {
+		return leaveCategoryCode;
+	}
+	public void setLeaveCategoryCode(String leaveCategoryCode) {
+		this.leaveCategoryCode = leaveCategoryCode;
 	}
 	public int getLeaveHistoryGrantHour() {
 		return leaveHistoryGrantHour;
@@ -102,12 +109,13 @@ public class LeaveHistory {
 	@Override
 	public String toString() {
 		return "LeaveHistory [LeaveHistoryCode=" + LeaveHistoryCode + ", memberId=" + memberId + ", leaveCategorySort="
-				+ leaveCategorySort + ", leaveHistoryGrantHour=" + leaveHistoryGrantHour + ", leaveHistoryGrantDay="
-				+ leaveHistoryGrantDay + ", leaveHistoryUsedHour=" + leaveHistoryUsedHour + ", leaveHistoryUsedDay="
-				+ leaveHistoryUsedDay + ", leaveHistoryRemainingHour=" + leaveHistoryRemainingHour
-				+ ", leaveHistoryRemainingDay=" + leaveHistoryRemainingDay + ", leaveHistoryDate=" + leaveHistoryDate
-				+ ", memberEmployeeCode=" + memberEmployeeCode + ", memberName=" + memberName + ", departmentName="
-				+ departmentName + ", memberPositionName=" + memberPositionName + "]";
+				+ leaveCategorySort + ", leaveCategoryCode=" + leaveCategoryCode + ", leaveHistoryGrantHour="
+				+ leaveHistoryGrantHour + ", leaveHistoryGrantDay=" + leaveHistoryGrantDay + ", leaveHistoryUsedHour="
+				+ leaveHistoryUsedHour + ", leaveHistoryUsedDay=" + leaveHistoryUsedDay + ", leaveHistoryRemainingHour="
+				+ leaveHistoryRemainingHour + ", leaveHistoryRemainingDay=" + leaveHistoryRemainingDay
+				+ ", leaveHistoryDate=" + leaveHistoryDate + ", memberEmployeeCode=" + memberEmployeeCode
+				+ ", memberName=" + memberName + ", departmentName=" + departmentName + ", memberPositionName="
+				+ memberPositionName + "]";
 	}
 	
-}
+}	
