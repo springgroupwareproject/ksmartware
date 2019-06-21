@@ -1,6 +1,6 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org" class="no-js" lang="en">
-    <head>
+  	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>ThemeKit - Admin Template</title>
@@ -49,10 +49,73 @@
 				<!-- 센터 본문영역 시작 -->               	
 			    <div class="main-content">
 					
+					<!-- 본문 글상자 -->
+					<div class="row">
+                    <div class="col-md-12">
+					<div class="card">
+					    <div class="card-header"><h3>관리자 권한 관리</h3></div>
+					    <div class="card-body">
+					    	<table style="border: 1px; width:60%; height: 100px; margin: auto; text-align: center;">
+					    		<!-- 제목 부분 -->
+					    		<thead>
+					    			<tr>
+					    				<td>분류</td>	
+					    				<td>이름</td>
+					    				<td>부서</td>
+					    				<td>조직 관리</td>
+					    				<td>인사관리</td>
+					    				<td>재무 관리</td>
+					    				<td>워크플로우 관리</td>
+					    				<td>데이터 관리</td>
+					    				<td>협업 관리</td>
+					    				<td>요금 결제 관리</td>
+					    				<td>보안 관리</td>	
+					    			</tr>										
+					    		</thead>
+					    		<tbody>
+					    			<tr th:each="adminLevel : ${adminLevel}">
+					    				<td th:text="${adminLevel.memberLevelTitle}"></td>
+					    				<td th:text="${adminLevel.adminName}"></td>
+					    				<td th:text="${adminLevel.departmentName}"></td>
+					    				<td><input type="checkbox"> </td>
+					    				<td>
+					    					<input th:if="${adminLevel.adminLevelManagement == 'Y'}" type="checkbox" checked="checked">
+					    				</td>
+					    				<td th:if="${adminLevel.adminLevelManagement == 'N'}">
+					    					<input type="checkbox" class="js-single" checked="false" />
+					    				</td>
+					    			</tr>
+				    			
+					    		</tbody>
+					    	</table>
+
+
+
+										<div>
+											<h4 class="sub-title">Single Switch</h4>
+											<input type="checkbox" class="js-single" unchecked />
+										</div>
+
+
+
+
+
+
+									<ul class="nav flex-column">
+										<!-- <li class="nav-item" th:each="adminLevel : ${adminLevel}" >
+									<a class="nav-link" th:text="${adminLevel.memberLevelTitle}" ></a>
+									<a class="nav-link" th:text="${adminLevel.adminName}" ></a>
+									<a class="nav-link" th:text="${adminLevel.departmentName}" ></a>
+									<a class="nav-link" th:text="${adminLevel.adminLevelManagement}" ></a>
+								</li> -->
+									</ul>
+								</div>
+							</div>
+								</div>
+							</div>
 					
-					
-				</div><!-- 센터 본문영역 끝 -->
-				
+				</div>
+				<!-- 센터 본문영역 끝 -->
 	
 				<!-- module footer 하단인클루드 -->
 				<div th:include="module/footer::inFooter"></div> 
