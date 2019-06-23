@@ -47,10 +47,10 @@
 - Language : java, javascript(jquery), HTML, CSS, SQL
 - DB : mariadb
 - DB관리툴 : HeidiSQL 10.1.0
-- WAS : apache-tomcat-9.0.16 
+- WAS : apache-tomcat-9.0.19 
 - 협업툴 : GitHub
-- 프레임워크 : Spring-Framework, Maven, mybatis 3.5.0, bootstrap
-- API : jackson.core 2.9.8, commons-dbcp 1.4, mssql-jdbc 4.4.0, thymeleaf, layout-dialect-2.3.0
+- 프레임워크 : Spring-Framework, Maven, mybatis 3.5.1, bootstrap
+- API : jackson.core 2.9.8, mysql, thymeleaf, layout-dialect-2.3.0
 
 <br>
 <br>
