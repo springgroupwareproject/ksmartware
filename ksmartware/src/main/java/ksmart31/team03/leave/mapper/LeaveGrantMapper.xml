@@ -18,5 +18,16 @@
 		FROM leave_grant
 		WHERE member_id = #{memberId}
 	</select>
-
+	<!-- 조직원 아이디별 휴가 부여일 합산 조회 -->
+	<resultMap type="ksmart31.team03.leave.domain.LeaveGrantAndUsed" id="selectTotalLeaveGrantByMemberId">
+		<result column="SUM(leave_grant_hour)" property="leaveTotalGrantHour"/>
+		<result column="SUM(leave_grant_day)" property="leaveTotalGrantDay"/>
+	</resultMap>
+	<select id="selectTotalLeaveGrantByMemberId" parameterType="String" resultMap="selectTotalLeaveGrantByMemberId">
+		SELECT 
+			SUM(leave_grant_hour),
+			SUM(leave_grant_day)
+		FROM leave_grant
+		WHERE member_id = #{memberId}
+	</select>
 </mapper>

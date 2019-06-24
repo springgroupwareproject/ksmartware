@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import ksmart31.team01.member.domain.Member;
 import ksmart31.team03.leave.domain.LeaveCategory;
 import ksmart31.team03.leave.domain.LeaveGrant;
+import ksmart31.team03.leave.domain.LeaveGrantAndUsed;
 import ksmart31.team03.leave.domain.LeaveHistory;
 import ksmart31.team03.leave.domain.LeaveUsed;
 import ksmart31.team03.leave.service.LeaveMyPageService;
@@ -40,6 +41,9 @@ public class LeaveMyPageController {
 			// 조직원 아이디별 휴가 사용 내역 조회
 			List<LeaveUsed> leaveUsedList = leaveMyPageService.getLeaveUsedByMemberId(loginMember.getMemberId());
 			System.out.println("LeaveMyPageController.getleaveMyPage [GET] leaveUsedList : "+leaveUsedList);
+			// 조직원 아이디별 휴가 부여일, 사용일 합산 조회
+			LeaveGrantAndUsed totalLeaveGrantAndUsed = leaveMyPageService.getTotalLeaveGrantAndUsed(loginMember.getMemberId());
+			System.out.println("LeaveMyPageController.getleaveMyPage [GET] totalLeaveGrantAndUsed : "+totalLeaveGrantAndUsed);
 			
 			model.addAttribute("leaveCategoryList", leaveCategoryList);
 			model.addAttribute("leaveHistoryList", leaveHistoryList);

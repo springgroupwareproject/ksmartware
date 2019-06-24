@@ -1,5 +1,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ksmart31.team03.leave.mapper.LeaveUsedMapper">
+	<!-- 조직원 아이디별 휴가 사용 내역 조회 -->
 	<resultMap type="ksmart31.team03.leave.domain.LeaveUsed" id="selectLeaveUsedByMemberId">
 		<result column="leave_category_sort" property="leaveCategorySort"/>
 		<result column="leave_detail_sort" property="leaveDetailSort"/>
@@ -18,6 +19,18 @@
 			leave_used_reason,
 			leave_used_start_day,
 			leave_used_end_day
+		FROM leave_uesd
+		WHERE member_id = #{memberId}
+	</select>
+	<!-- 조직원 아이디별 휴가 사용일 합산 조회 -->
+	<resultMap type="ksmart31.team03.leave.domain.LeaveGrantAndUsed" id="selectTotalLeaveUsedByMemberId">
+		<result column="SUM(leave_used_hour)" property="leaveTotalUsedHour"/>
+		<result column="SUM(leave_used_day)" property="leaveTotalUsedDay"/>
+	</resultMap>
+	<select id="selectTotalLeaveUsedByMemberId" parameterType="String" resultMap="selectTotalLeaveUsedByMemberId">
+		SELECT 
+			SUM(leave_used_hour),
+			SUM(leave_used_day)
 		FROM leave_uesd
 		WHERE member_id = #{memberId}
 	</select>
