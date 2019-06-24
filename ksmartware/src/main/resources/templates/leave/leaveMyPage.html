@@ -1,38 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>leaveMyPage</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="../plugins/bootstrap/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
-<link rel="stylesheet" href="../plugins/ionicons/dist/css/ionicons.min.css">
-<link rel="stylesheet" href="../plugins/icon-kit/dist/css/iconkit.min.css">
-<link rel="stylesheet" href="../plugins/perfect-scrollbar/css/perfect-scrollbar.css">
-<link rel="stylesheet" href="../plugins/select2/dist/css/select2.min.css">
-<link rel="stylesheet" href="../plugins/summernote/dist/summernote-bs4.css">
-<link rel="stylesheet" href="../plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
-<link rel="stylesheet" href="../plugins/mohithg-switchery/dist/switchery.min.css">
-<link rel="stylesheet" href="../dist/css/theme.min.css">
-</head>
-<body>
-<div class="row">
-	<div class="col-2" style="padding-right:20px; border-right: 1px solid #ccc;">
-		<h1>글</h1>
-		<h1>로</h1>
-		<h1>벌</h1>
-		<h1>네</h1>
-		<h1>비</h1>
-		<h1>게</h1>
-		<h1>이</h1>
-		<h1>션</h1>
-		<h1>바</h1>
-	</div>
-	<div class="col-10" style="padding-right:20px; border-right: 1px solid #ccc;">
-		<!-- 휴가 정보 첫 번째 카드 영역 - 조직원 이름, 검색 조건 -->
+<html class="no-js" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/main">
+	
+	<th:block layout:fragment="customHead">
+		<meta charset="UTF-8">
+		<title>Sample</title>
+		<th:block th:include="layout/customHead"></th:block>
+	</th:block>
+	
+	<th:block layout:fragment="customBody">
+		<h2>나의 정보 - 나의 휴가 정보</h2>	<br/>
+		<div>
+			<!-- 휴가 정보 첫 번째 카드 영역 - 조직원 이름, 검색 조건 -->
 		<div class="card">
 			<div class="card-header" th:text="${loginMember.memberName}"></div>
 		</div>
@@ -169,7 +147,10 @@
 				</table>
 			</div>
 		</div>
-	</div>	
-</div>	
-</body>
+	</th:block>
+	
+	<th:block layout:fragment="customJquery">
+		<th:block th:include="layout/customJquery"></th:block>
+	</th:block>
+	
 </html>
