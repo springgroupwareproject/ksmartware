@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html class="no-js" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/main">
-	
-	<th:block layout:fragment="customHead">
-		<meta charset="UTF-8">
-		<title>Sample</title>
-		<th:block th:include="layout/customHead"></th:block>
-		<script>
-			$(function(){
-				
-			});
-		</script>
-	</th:block>
-	
-	<th:block layout:fragment="customBody">
-		<h2>나의 정보 - 나의 휴가 정보</h2>	<br/>
+<h2>나의 정보 - 나의 휴가 정보</h2>	<br/>
 			<!-- 휴가 정보 첫 번째 카드 영역 - 조직원 이름, 검색 조건 -->
 		<div class="card">
 			<div class="card-header" th:text="${loginMember.memberName}"></div>
@@ -107,19 +92,18 @@
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th>휴가 종류</th>
-										<th>부여일</th>
-										<th>부여 휴가 일수</th>
-										<th>부여 사유</th>
+										<td>휴가 종류</td>
+										<td>부여일</td>
+										<td>부여 휴가 일수</td>
+										<td>부여 사유</td>
 									</tr>
 								</thead>	
 								<tbody>
 									<tr th:each="grantList : ${leaveGrantList}">
-										<td th:text="${grantList.leaveCategorySort}"></td>
+										<td th:text="${grantList.leaveCategorySort}"><td>
 										<td th:text="${grantList.leaveGrantDate}"></td>
 										<td th:text="|${grantList.leaveGrantDay}일 ${grantList.leaveGrantHour}시간|"></td>
-										<!-- <td th:text="${grantList.leaveGrantReason}"></td> -->
-										<td></td>
+										<td th:text="${grantList.leaveGrantReason}"></td>
 									</tr>
 								</tbody>
 							</table>
@@ -127,62 +111,50 @@
 					</div>
 					<!-- 사용 내역 리스트 -->
 					<div class="col-6" style="border: 1px solid #ccc; height:470px; padding:0px;">
-						<div class="table-responsive">
-							<table class="table table-bordered">
-								<thead>
-									<tr>
-										<th>휴가 종류</th>
-										<th>휴가 세부 종류</th>
-										<th>휴가 기간</th>
-										<th>휴가 일수</th>
-										<th>휴가 사유</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr th:each="usedList : ${leaveUsedList}">
-										<td th:text="${usedList.leaveCategorySort}"></td>
-										<td th:text="${usedList.leaveDetailSort}"></td>
-										<td th:text="|${usedList.leaveUsedStartDay} - ${usedList.leaveUsedEndDay}|"></td>
-										<td th:text="|${usedList.leaveUsedDay}일 ${usedList.leaveUsedHour}시간|"></td>
-										<!-- <td th:text="${usedList.leaveUsedReason}"></td> -->
-										<td></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<td>휴가 종류</td>
+									<td>휴가 세부 종류</td>
+									<td>휴가 기간</td>
+									<td>휴가 일수</td>
+									<td>휴가 사유</td>
+								</tr>
+							</thead>	
+							<tbody>
+								<tr th:each="usedList : ${leaveUsedList}">
+									<td th:text="${usedList.leaveCategorySort}"><td>
+									<td th:text="${usedList.leaveDetailSort}"></td>
+									<td th:text="|${usedList.leaveStartDay} - ${usedList.leaveEndDay}|"></td>
+									<td th:text="|${usedList.leaveUsedtDay}일 ${usedList.leaveUsedHour}시간|"></td>
+									<td th:text="${usedList.leaveUsedReason}"></td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 					<!-- 휴가 부여일수 합계 -->
-					<div class="col-3" style="border: 1px solid #ccc; height:50px; padding:15px; text-align:center;">
+					<div class="col-3" style="border: 1px solid #ccc; height:50px; padding:15px;">
 						<span>휴가 부여일수 합계</span>
 					</div>
 					<!-- 휴가 부여일수 합계 -->
-					<div class="col-3 text-primary" style="border: 1px solid #ccc; height:50px; padding:15px; text-align:center;">
+					<div class="col-3" style="border: 1px solid #ccc; height:50px; padding:15px;">
 						<span>00일 00시간</span>
 					</div>
 					<!-- 휴가 사용일수 합계 -->
-					<div class="col-3" style="border: 1px solid #ccc; height:50px; padding:15px; text-align:center;">
+					<div class="col-3" style="border: 1px solid #ccc; height:50px; padding:15px;">
 						<span>휴가 사용일수 합계</span>
 					</div>
 					<!-- 휴가 사용일수 합계 -->
-					<div class="col-3 text-danger" style="border: 1px solid #ccc; height:50px; padding:15px; text-align:center;">
+					<div class="col-3" style="border: 1px solid #ccc; height:50px; padding:15px;">
 						<span>00일 00시간</span>
 					</div>
 					<!-- 휴가 일수 합계 -->
-					<div class="col-6" style="border: 1px solid #ccc; height:50px; padding:15px; text-align:center;">
+					<div class="col-6" style="border: 1px solid #ccc; height:50px; padding:15px;">
 						<span>휴가 일수 합계</span>
 					</div>
-					<!-- 휴가 일수 합계 -->
-					<div class="col-6" style="border: 1px solid #ccc; height:50px; padding:15px; text-align:center;">
+					<div class="col-6" style="border: 1px solid #ccc; height:50px; padding:15px;">
 						<span>00일 00시간</span>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-	</th:block>
-	
-	<th:block layout:fragment="customJquery">
-		<th:block th:include="layout/customJquery"></th:block>
-	</th:block>
-	
-</html>

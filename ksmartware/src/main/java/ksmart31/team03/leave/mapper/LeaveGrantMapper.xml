@@ -3,7 +3,7 @@
 	<!-- 조직원 아이디별 휴가 부여 내역 조회 -->
 	<resultMap type="ksmart31.team03.leave.domain.LeaveGrant" id="selectLeaveGrantByMemeberId">
 		<result column="leave_category_sort" property="leaveCategorySort"/>
-		<result column="leave_grant_date" property="leaveGrantDate"/>
+		<result column="DATE_FORMAT(leave_grant_date,'%Y-%m-%d')" property="leaveGrantDate"/>
 		<result column="leave_grant_hour" property="leaveGrantHour"/>
 		<result column="leave_grant_day" property="leaveGrantDay"/>
 		<result column="leave_grant_reason" property="leaveGrantReason"/>
@@ -11,7 +11,7 @@
 	<select id="selectLeaveGrantByMemeberId" parameterType="String" resultMap="selectLeaveGrantByMemeberId">
 		SELECT 
 			leave_category_sort,
-			leave_grant_date,
+			DATE_FORMAT(leave_grant_date,'%Y-%m-%d'),
 			leave_grant_hour,
 			leave_grant_day,
 			leave_grant_reason

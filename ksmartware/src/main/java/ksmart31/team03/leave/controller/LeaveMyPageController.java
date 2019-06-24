@@ -13,6 +13,7 @@ import ksmart31.team01.member.domain.Member;
 import ksmart31.team03.leave.domain.LeaveCategory;
 import ksmart31.team03.leave.domain.LeaveGrant;
 import ksmart31.team03.leave.domain.LeaveHistory;
+import ksmart31.team03.leave.domain.LeaveUsed;
 import ksmart31.team03.leave.service.LeaveMyPageService;
 
 @Controller
@@ -36,9 +37,14 @@ public class LeaveMyPageController {
 			// 조직원 아이디별 휴가 부여 내역 조회
 			List<LeaveGrant> leaveGrantList = leaveMyPageService.getLeaveGrantByMemberId(loginMember.getMemberId());
 			System.out.println("LeaveMyPageController.getleaveMyPage [GET] leaveGrantList : "+leaveGrantList);
+			// 조직원 아이디별 휴가 사용 내역 조회
+			List<LeaveUsed> leaveUsedList = leaveMyPageService.getLeaveUsedByMemberId(loginMember.getMemberId());
+			System.out.println("LeaveMyPageController.getleaveMyPage [GET] leaveUsedList : "+leaveUsedList);
+			
 			model.addAttribute("leaveCategoryList", leaveCategoryList);
 			model.addAttribute("leaveHistoryList", leaveHistoryList);
 			model.addAttribute("leaveGrantList", leaveGrantList);
+			model.addAttribute("leaveUsedList", leaveUsedList);
 			model.addAttribute("loginMember", loginMember);
 			model.addAttribute("newLineChar", '\n');
 			return "leave/leaveMyPage";
