@@ -8,7 +8,7 @@
 		<result column="leave_grant_day" property="leaveGrantDay"/>
 		<result column="leave_grant_reason" property="leaveGrantReason"/>
 	</resultMap>
-	<select id="selectLeaveGrantByMemeberId" parameterType="String" resultMap="selectLeaveGrantByMemeberId">
+	<select id="selectLeaveGrantByMemeberId" parameterType="java.util.Map" resultMap="selectLeaveGrantByMemeberId">
 		SELECT 
 			leave_category_sort,
 			DATE_FORMAT(leave_grant_date,'%Y-%m-%d'),
@@ -17,17 +17,27 @@
 			leave_grant_reason
 		FROM leave_grant
 		WHERE member_id = #{memberId}
+		<!-- leaveCategorySort 선택 값의 동적 쿼리-->
+		<!-- 전체 선택 시 밸류값이 공백 -->
+		<if test="leaveCategorySort != ''">
+			AND leave_category_sort = #{leaveCategorySort}
+		</if>
 	</select>
 	<!-- 조직원 아이디별 휴가 부여일 합산 조회 -->
 	<resultMap type="ksmart31.team03.leave.domain.LeaveGrantAndUsed" id="selectTotalLeaveGrantByMemberId">
 		<result column="SUM(leave_grant_hour)" property="leaveTotalGrantHour"/>
 		<result column="SUM(leave_grant_day)" property="leaveTotalGrantDay"/>
 	</resultMap>
-	<select id="selectTotalLeaveGrantByMemberId" parameterType="String" resultMap="selectTotalLeaveGrantByMemberId">
+	<select id="selectTotalLeaveGrantByMemberId" parameterType="java.util.Map" resultMap="selectTotalLeaveGrantByMemberId">
 		SELECT 
 			SUM(leave_grant_hour),
 			SUM(leave_grant_day)
 		FROM leave_grant
 		WHERE member_id = #{memberId}
+		<!-- leaveCategorySort 선택 값의 동적 쿼리-->
+		<!-- 전체 선택 시 밸류값이 공백 -->
+		<if test="leaveCategorySort != ''">
+			AND leave_category_sort = #{leaveCategorySort}
+		</if>
 	</select>
 </mapper>

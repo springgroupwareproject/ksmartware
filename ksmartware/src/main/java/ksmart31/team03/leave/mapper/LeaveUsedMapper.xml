@@ -10,7 +10,7 @@
 		<result column="leave_used_start_day" property="leaveUsedStartDay"/>
 		<result column="leave_used_end_day" property="leaveUsedEndDay"/>
 	</resultMap>
-	<select id="selectLeaveUsedByMemberId" parameterType="String" resultMap="selectLeaveUsedByMemberId">
+	<select id="selectLeaveUsedByMemberId" parameterType="java.util.Map" resultMap="selectLeaveUsedByMemberId">
 		SELECT 
 			leave_category_sort,
 			leave_detail_sort,
@@ -21,17 +21,27 @@
 			leave_used_end_day
 		FROM leave_uesd
 		WHERE member_id = #{memberId}
+		<!-- leaveCategorySort 선택 값의 동적 쿼리-->
+		<!-- 전체 선택 시 밸류값이 공백 -->
+		<if test="leaveCategorySort != ''">
+			AND leave_category_sort = #{leaveCategorySort}
+		</if>
 	</select>
 	<!-- 조직원 아이디별 휴가 사용일 합산 조회 -->
 	<resultMap type="ksmart31.team03.leave.domain.LeaveGrantAndUsed" id="selectTotalLeaveUsedByMemberId">
 		<result column="SUM(leave_used_hour)" property="leaveTotalUsedHour"/>
 		<result column="SUM(leave_used_day)" property="leaveTotalUsedDay"/>
 	</resultMap>
-	<select id="selectTotalLeaveUsedByMemberId" parameterType="String" resultMap="selectTotalLeaveUsedByMemberId">
+	<select id="selectTotalLeaveUsedByMemberId" parameterType="java.util.Map" resultMap="selectTotalLeaveUsedByMemberId">
 		SELECT 
 			SUM(leave_used_hour),
 			SUM(leave_used_day)
 		FROM leave_uesd
 		WHERE member_id = #{memberId}
+		<!-- leaveCategorySort 선택 값의 동적 쿼리-->
+		<!-- 전체 선택 시 밸류값이 공백 -->
+		<if test="leaveCategorySort != ''">
+			AND leave_category_sort = #{leaveCategorySort}
+		</if>
 	</select>
 </mapper>

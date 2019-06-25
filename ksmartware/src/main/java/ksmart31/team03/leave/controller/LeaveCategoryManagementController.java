@@ -21,7 +21,7 @@ public class LeaveCategoryManagementController {
 	@Autowired
 	private LeaveCategoryManagementService leaveCategoryManagementService;
 	
-	@GetMapping("/leaveCategoryManagement")
+	@GetMapping("/leave/leaveCategoryManagement")
 	public String getleaveCategoryManagement(HttpSession session, Model model, @RequestParam(required = false) String leaveCategoryCode) {
 		Member loginMember = (Member) session.getAttribute("loginMember");
 		System.out.println("LeaveCategoryManagementController.getleaveCategoryManagement [GET] loginMember : "+loginMember);

@@ -42,24 +42,50 @@ public class LeaveMyPageService {
 		return leaveHistoryMapper.selectLeaveHistoryByMemberId(memberId);
 	}
 	// 조직원 아이디별 휴가 부여 내역 조회
-	public List<LeaveGrant> getLeaveGrantByMemberId(String memberId){
-		return leaveGrantMapper.selectLeaveGrantByMemeberId(memberId);
+	public List<LeaveGrant> getLeaveGrantByMemberId(String memberId, String leaveCategorySort){
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("memberId", memberId);
+		paramMap.put("leaveCategorySort", leaveCategorySort);
+		return leaveGrantMapper.selectLeaveGrantByMemeberId(paramMap);
 	}
 	// 조직원 아이디별 휴가 사용 내역 조회
-	public List<LeaveUsed> getLeaveUsedByMemberId(String memberId){
-		return leaveUsedMapper.selectLeaveUsedByMemberId(memberId);
+	public List<LeaveUsed> getLeaveUsedByMemberId(String memberId, String leaveCategorySort){
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("memberId", memberId);
+		paramMap.put("leaveCategorySort", leaveCategorySort);
+		return leaveUsedMapper.selectLeaveUsedByMemberId(paramMap);
 	}
 	// 조직원 아이디별 휴가 부여일, 사용일 합산 조회
-	public LeaveGrantAndUsed getTotalLeaveGrantAndUsed(String memberId) {
-		LeaveGrantAndUsed totalGrant = leaveGrantMapper.selectTotalLeaveGrantByMemberId(memberId);
-		LeaveGrantAndUsed totalUsed = leaveUsedMapper.selectTotalLeaveUsedByMemberId(memberId);
+	public LeaveGrantAndUsed getTotalLeaveGrantAndUsed(String memberId, String leaveCategorySort) {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("memberId", memberId);
+		paramMap.put("leaveCategorySort", leaveCategorySort);
+		// 부여일 조회
+		LeaveGrantAndUsed totalGrant = leaveGrantMapper.selectTotalLeaveGrantByMemberId(paramMap);
+		// 사용일 조회
+		LeaveGrantAndUsed totalUsed = leaveUsedMapper.selectTotalLeaveUsedByMemberId(paramMap);
+		// 최종 값을 담을 객체
 		LeaveGrantAndUsed totalLeaveGrantAndUsed = new LeaveGrantAndUsed();
-		totalLeaveGrantAndUsed.setLeaveTotalGrantHour(totalGrant.getLeaveTotalGrantHour());
-		totalLeaveGrantAndUsed.setLeaveTotalGrantDay(totalGrant.getLeaveTotalGrantDay());
-		totalLeaveGrantAndUsed.setLeaveTotalUsedHour(totalUsed.getLeaveTotalUsedHour());
-		totalLeaveGrantAndUsed.setLeaveTotalUsedDay(totalUsed.getLeaveTotalUsedDay());
-		totalLeaveGrantAndUsed.setLeaveTotalHour(totalGrant.getLeaveTotalGrantHour() - totalUsed.getLeaveTotalUsedHour());
-		totalLeaveGrantAndUsed.setLeaveTotalDay(totalGrant.getLeaveTotalGrantDay() - totalUsed.getLeaveTotalUsedDay());
+		// 부여일, 사용일 조회 결과값이 있을 경우에만 셋팅
+		if(totalGrant != null || totalUsed != null) {
+			int leaveTotalGrantHour = totalGrant.getLeaveTotalGrantHour();	// 부여 시간
+			int leaveTotalGrantDay = totalGrant.getLeaveTotalGrantDay();	// 부여 일
+			int leaveTotalUsedHour = totalUsed.getLeaveTotalUsedHour();		// 사용 시간 
+			int leaveTotalUsedDay = totalUsed.getLeaveTotalUsedDay();		// 사용 일
+			int leaveTotalHour = totalGrant.getLeaveTotalGrantHour() - totalUsed.getLeaveTotalUsedHour();	// 부여 시간 - 사용 시간
+			int leaveTotalDay = totalGrant.getLeaveTotalGrantDay() - totalUsed.getLeaveTotalUsedDay();		// 부여 일 - 사용 일
+			// 시간이 0보다 작을 경우(음수일 경우) 하루를 빼준다
+			if(leaveTotalHour < 0) {
+				leaveTotalHour = leaveTotalHour * -1;
+				leaveTotalDay--;
+			}
+			totalLeaveGrantAndUsed.setLeaveTotalGrantHour(leaveTotalGrantHour);
+			totalLeaveGrantAndUsed.setLeaveTotalGrantDay(leaveTotalGrantDay);
+			totalLeaveGrantAndUsed.setLeaveTotalUsedHour(leaveTotalUsedHour);
+			totalLeaveGrantAndUsed.setLeaveTotalUsedDay(leaveTotalUsedDay);
+			totalLeaveGrantAndUsed.setLeaveTotalHour(leaveTotalHour);
+			totalLeaveGrantAndUsed.setLeaveTotalDay(leaveTotalDay);
+		}
 		return totalLeaveGrantAndUsed;
 	}
 }

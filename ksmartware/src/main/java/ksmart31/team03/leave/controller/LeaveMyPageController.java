@@ -22,7 +22,8 @@ public class LeaveMyPageController {
 	@Autowired
 	private LeaveMyPageService leaveMyPageService;
 	
-	@GetMapping("/leaveMyPage")
+	// 나의 휴가 정보
+	@GetMapping("/leave/leaveMyPage")
 	public String getleaveMyPage(HttpSession session, Model model) {
 		Member loginMember = (Member) session.getAttribute("loginMember");
 		System.out.println("LeaveMyPageController.getleaveMyPage [GET] loginMember : "+loginMember);
@@ -35,22 +36,10 @@ public class LeaveMyPageController {
 			// 조직원 아이디별 휴가 내역 조회
 			List<LeaveHistory> leaveHistoryList = leaveMyPageService.getLeaveHistoryByMemberId(loginMember.getMemberId());
 			System.out.println("LeaveMyPageController.getleaveMyPage [GET] leaveHistoryList : "+leaveHistoryList);
-			// 조직원 아이디별 휴가 부여 내역 조회
-			List<LeaveGrant> leaveGrantList = leaveMyPageService.getLeaveGrantByMemberId(loginMember.getMemberId());
-			System.out.println("LeaveMyPageController.getleaveMyPage [GET] leaveGrantList : "+leaveGrantList);
-			// 조직원 아이디별 휴가 사용 내역 조회
-			List<LeaveUsed> leaveUsedList = leaveMyPageService.getLeaveUsedByMemberId(loginMember.getMemberId());
-			System.out.println("LeaveMyPageController.getleaveMyPage [GET] leaveUsedList : "+leaveUsedList);
-			// 조직원 아이디별 휴가 부여일, 사용일 합산 조회
-			LeaveGrantAndUsed totalLeaveGrantAndUsed = leaveMyPageService.getTotalLeaveGrantAndUsed(loginMember.getMemberId());
-			System.out.println("LeaveMyPageController.getleaveMyPage [GET] totalLeaveGrantAndUsed : "+totalLeaveGrantAndUsed);
 			
 			model.addAttribute("leaveCategoryList", leaveCategoryList);
 			model.addAttribute("leaveHistoryList", leaveHistoryList);
-			model.addAttribute("leaveGrantList", leaveGrantList);
-			model.addAttribute("leaveUsedList", leaveUsedList);
 			model.addAttribute("loginMember", loginMember);
-			model.addAttribute("newLineChar", '\n');
 			return "leave/leaveMyPage";
 		}
 	}

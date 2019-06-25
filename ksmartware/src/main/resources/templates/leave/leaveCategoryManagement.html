@@ -13,7 +13,7 @@
 					// leaveCategoryCode 별로 상세 휴가를 조회하기 위해 code 값을 담는 변수 
 					let leaveCategoryCode = $(this).attr('value');
 					// 동기 요청(get)
-					location.href='/leaveCategoryManagement?leaveCategoryCode='+leaveCategoryCode+'';
+					location.href='/leave/leaveCategoryManagement?leaveCategoryCode='+leaveCategoryCode+'';
 				});
 				// 상세 휴가 버튼 클릭 이벤트
 				$('.leaveDetailButton').click(function(){
@@ -22,7 +22,7 @@
 					let leaveDetailCode = $(this).attr('value');
 					// 비동기 요청
 					$.ajax({
-						url : '/leaveDetail',
+						url : '/leave/leaveDetail',
 						type : 'get',
 						data : {
 							leaveDetailCode:leaveDetailCode
@@ -69,7 +69,7 @@
 					let leavePolicyCode = $(this).attr('value');
 					// 비동기 요청
 					$.ajax({
-						url : '/leavePolicy',
+						url : '/leave/leavePolicy',
 						type : 'get',
 						data : {
 							leavePolicyCode:leavePolicyCode

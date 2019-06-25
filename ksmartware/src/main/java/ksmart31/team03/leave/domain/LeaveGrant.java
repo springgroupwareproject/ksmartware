@@ -42,10 +42,10 @@ public class LeaveGrant {
 	public void setLeaveGrantDay(int leaveGrantDay) {
 		this.leaveGrantDay = leaveGrantDay;
 	}
-	public String getLeaveGrantDaysReason() {
+	public String getLeaveGrantReason() {
 		return leaveGrantReason;
 	}
-	public void setLeaveGrantDaysReason(String leaveGrantReason) {
+	public void setLeaveGrantReason(String leaveGrantReason) {
 		this.leaveGrantReason = leaveGrantReason;
 	}
 	public String getLeaveGrantDate() {
@@ -86,5 +86,4 @@ public class LeaveGrant {
 				+ ", memberEmployeeCode=" + memberEmployeeCode + ", memberName=" + memberName + ", departmentName="
 				+ departmentName + ", memberPositionName=" + memberPositionName + "]";
 	}
-	
 }
