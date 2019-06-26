@@ -21,7 +21,7 @@ public class PersonnelSetUpController {
 	@Autowired PersonnelSetUpService personnelSetUpService;
 	
 	/* 관리자 권한부여 매서드 */
-	@GetMapping("admin/adminLevel")
+	@GetMapping("/adminLevel/adminLevel")
 	public String adminLevel(HttpSession session, Model model) {
 		System.out.println("관리자별 권한부여 실행");
 		
@@ -45,7 +45,7 @@ public class PersonnelSetUpController {
 			List<AdminLevel> adminLevel = personnelSetUpService.adminLevel();
 			model.addAttribute("adminLevel", adminLevel);
 			
-				return "admin/adminLevel";
+				return "adminLevel/adminLevel";
 		}			
 		
 		System.out.println("마스터or슈퍼관리자가 아닙니다.");
