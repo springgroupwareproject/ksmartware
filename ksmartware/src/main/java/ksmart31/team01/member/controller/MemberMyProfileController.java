@@ -8,14 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import ksmart31.team01.member.domain.Member;
-import ksmart31.team01.member.service.MemberService;
+import ksmart31.team01.member.service.MemberMyProfileService;
 
 @Controller
 public class MemberMyProfileController {
 	
-	@Autowired private MemberService memberService;
+	@Autowired private MemberMyProfileService memberMyProfileService;
 	
-	@GetMapping("member/myProfile")
+	@GetMapping("/member/memberMyProfile/myProfile")
 	public String myProfile(HttpSession session, Model model){
 		System.out.println("마이 프로필 매서드 실행.");
 		System.out.println("접속자 정보 확인중...");
@@ -25,11 +25,13 @@ public class MemberMyProfileController {
 			return "redirect:"+"/login";
 		}
 		System.out.println(member.getMemberName()+"님 확인");		
-		Member lesultMember = memberService.myProfile();
-		model.addAttribute("lesultMember", lesultMember);
+		
+		String memberId = member.getMemberId();
+		Member memberProfile = memberMyProfileService.myProfile(memberId);
+		model.addAttribute("memberProfile", memberProfile);
 	
 	
-		return "member/myProfile";
+		return "member/memberMyProfile/myProfile";
 	}
 	
 }
