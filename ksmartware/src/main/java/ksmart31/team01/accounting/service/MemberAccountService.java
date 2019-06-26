@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import ksmart31.team01.accounting.domain.MemberAccount;
 import ksmart31.team01.accounting.mapper.MemberAccountMapper;
-import ksmart31.team01.domain.MemberAccount;
 
 
 @Service

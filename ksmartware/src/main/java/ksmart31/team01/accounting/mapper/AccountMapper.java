@@ -1,9 +1,12 @@
 package ksmart31.team01.accounting.mapper;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Mapper;
-import ksmart31.team01.domain.Account;
-import ksmart31.team01.domain.Member;
+
+import ksmart31.team01.accounting.domain.Account;
+import ksmart31.team01.accounting.domain.Member;
 
 @Mapper
 public interface AccountMapper {

@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import ksmart31.team01.accounting.domain.MemberAccount;
 import ksmart31.team01.accounting.service.MemberAccountService;
-import ksmart31.team01.domain.MemberAccount;
 
 @Controller
 public class MemberAccountController {
