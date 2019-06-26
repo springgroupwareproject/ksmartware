@@ -18,13 +18,6 @@
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
-		<!-- 톰캣 8.0.53 버전 사용시 -->
-		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
-		<!-- <dependency>
-		    <groupId>org.apache.tomcat.embed</groupId>
-		    <artifactId>tomcat-embed-jasper</artifactId>
-		    <version>8.0.53</version>
-		</dependency> -->
 		<dependency>
 			<groupId>nz.net.ultraq.thymeleaf</groupId>
 			<artifactId>thymeleaf-layout-dialect</artifactId>
