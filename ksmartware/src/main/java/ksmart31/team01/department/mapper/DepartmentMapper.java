@@ -5,8 +5,8 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import ksmart31.team01.domain.Department;
-import ksmart31.team01.domain.DepartmentJoinMember;
+import ksmart31.team01.department.domain.Department;
+import ksmart31.team01.department.domain.DepartmentJoinMember;
 
 @Mapper
 public interface DepartmentMapper {
