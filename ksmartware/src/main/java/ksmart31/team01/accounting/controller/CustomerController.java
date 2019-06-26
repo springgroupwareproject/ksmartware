@@ -6,8 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import ksmart31.team01.accounting.service.CustomerService;
 import ksmart31.team01.accounting.domain.Customer;
+import ksmart31.team01.accounting.service.CustomerService;
 
 
 @Controller

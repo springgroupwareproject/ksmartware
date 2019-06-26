@@ -5,9 +5,9 @@ import org.apache.ibatis.annotations.Mapper;
 import ksmart31.team01.member.domain.Member;
 
 @Mapper
-public interface MemberMapper {
+public interface MemberMyProfileMapper {
 	
-	public Member myProfile();
+	public Member myProfile(String memberId);
 	
 	
 	

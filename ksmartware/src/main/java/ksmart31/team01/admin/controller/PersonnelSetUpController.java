@@ -16,6 +16,7 @@ import ksmart31.team01.member.domain.Member;
 @Controller
 public class PersonnelSetUpController {
 	
+	// 리베이스 테스트
 	
 	@Autowired PersonnelSetUpService personnelSetUpService;
 	

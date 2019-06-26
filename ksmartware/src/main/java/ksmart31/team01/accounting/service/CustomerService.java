@@ -4,9 +4,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ksmart31.team01.accounting.mapper.CustomerMapper;
-import ksmart31.team01.accounting.domain.Customer;
+
 import ksmart31.team01.accounting.domain.Member;
+import ksmart31.team01.accounting.mapper.CustomerMapper;
 
 
 @Service
