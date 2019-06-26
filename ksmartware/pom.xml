@@ -8,7 +8,7 @@
 		<version>2.1.5.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>ksmart31.team00</groupId>
+	<groupId>ksmart31</groupId>
 	<artifactId>ksmartware</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
