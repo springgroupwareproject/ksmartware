@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import ksmart31.team01.domain.MemberAccount;
+import ksmart31.team01.accounting.domain.MemberAccount;
 
 
 

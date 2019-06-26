@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ksmart31.team01.accounting.service.AccountService;
-import ksmart31.team01.domain.Account;
-import ksmart31.team01.domain.Member;
+import ksmart31.team01.accounting.domain.Account;
+import ksmart31.team01.accounting.domain.Member;
 
 @RestController
 public class RestAccountController {
