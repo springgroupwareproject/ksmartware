@@ -18,7 +18,7 @@ public class AccountController {
 		Map<String,Object> map = accountService.getAccountList(currentPage);
 				
 		model.addAttribute("accountList", map.get("accountList"));
-		
+		//최신다시올림
 		
 		return "accounting/accountListView";
 	}
