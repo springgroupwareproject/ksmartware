@@ -5,16 +5,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ksmart31.team01.member.domain.Member;
-import ksmart31.team01.member.mapper.MemberMapper;
+import ksmart31.team01.member.mapper.MemberMyProfileMapper;
 
 @Service
 @Transactional
-public class MemberService {
+public class MemberMyProfileService {
 
-	@Autowired private MemberMapper memberMapper;
+	@Autowired private MemberMyProfileMapper memberMyProfileMapper;
 	
-	public Member myProfile() {
-		return memberMapper.myProfile();
+	public Member myProfile(String memberId) {
+		return memberMyProfileMapper.myProfile(memberId);
 	}
 	
 	

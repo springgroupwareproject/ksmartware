@@ -27,39 +27,39 @@
 					<div class="card-header">MyProfile</div>
 					<div class="card-body">
 						<div>
-							<a href="/member/myProfile">개인 정보</a>
+							<a href="/member/memberMyProfile/myProfile">개인 정보</a>
 						</div>
 						<hr>
 						<div>
-							<a href="/member/myInfo">인사 정보</a>
+							<a href="/member/memberMyProfile/myInfo">인사 정보</a>
 						</div>
 						<hr>
 						<div>
-							<a href="/member/myProfile">경력 정보</a>
+							<a href="/member/memberMyProfile/myProfile">경력 정보</a>
 						</div>
 						<hr>
 						<div>
-							<a href="/member/myProfile">프로젝트 정보</a>
+							<a href="/member/memberMyProfile/myProfile">프로젝트 정보</a>
 						</div>
 						<hr>
 						<div>
-							<a href="/member/myProfile">학력 정보</a>
+							<a href="/member/memberMyProfile/myProfile">학력 정보</a>
 						</div>
 						<hr>
 						<div>
-							<a href="/member/myProfile">교육 이력 정보</a>
+							<a href="/member/memberMyProfile/myProfile">교육 이력 정보</a>
 						</div>
 						<hr>
 						<div>
-							<a href="/member/myProfile">자격증 정보</a>
+							<a href="/member/memberMyProfile/myProfile">자격증 정보</a>
 						</div>
 						<hr>
 						<div>
-							<a href="/member/myProfile">수상 경력 정보</a>
+							<a href="/member/memberMyProfile/myProfile">수상 경력 정보</a>
 						</div>
 						<hr>
 						<div>
-							<a href="/member/myProfile">특허 정보</a>
+							<a href="/member/memberMyProfile/myProfile">특허 정보</a>
 						</div>
 					</div>
 				</div>
@@ -73,6 +73,8 @@
 						
 						<div>전화번호</div>
 						<input type="text" style="width:200px" class="form-control">
+						<input th:text="${memberProfile.memberMobile}" >
+										
 						<hr>
 						
 						<div>휴대전화</div>
