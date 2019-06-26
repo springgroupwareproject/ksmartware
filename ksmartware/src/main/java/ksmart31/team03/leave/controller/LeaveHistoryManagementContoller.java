@@ -29,18 +29,14 @@ public class LeaveHistoryManagementContoller {
 		}else {
 			// 조직도
 			Map<String,Object> returnMap = leaveHistoryManagementService.getDepartmentList(departmentName);	
+			System.out.println("LeaveHistoryManagementContoller.getleaveHistoryManagement [GET] returnMap : "+returnMap);
 			// 휴가 카테고리 리스트 조회
 			List<LeaveCategory> leaveCategoryList = leaveHistoryManagementService.getLeaveCategoryList();
 			System.out.println("LeaveHistoryManagementContoller.getleaveHistoryManagement [GET] leaveCategoryList : "+leaveCategoryList);
-			// 조직원 아이디별 휴가 내역 조회
-			List<LeaveHistory> leaveHistoryList = leaveHistoryManagementService.getLeaveHistoryByMemberId(loginMember.getMemberId());
-			System.out.println("LeaveHistoryManagementContoller.getleaveHistoryManagement [GET] leaveHistoryList : "+leaveHistoryList);
 			
 			model.addAttribute("recursiveList", returnMap.get("recursiveList"));		
 			model.addAttribute("departmentJoinMemberList", returnMap.get("departmentJoinMemberList"));
 			model.addAttribute("leaveCategoryList", leaveCategoryList);
-			model.addAttribute("leaveHistoryList", leaveHistoryList);
-		
 			return "leave/leaveHistoryManagement";
 		}
 	}

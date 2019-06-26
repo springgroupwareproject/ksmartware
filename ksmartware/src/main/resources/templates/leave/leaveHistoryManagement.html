@@ -80,8 +80,8 @@
 						        </tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td ></td>
+								<tr th:each="historyList : ${leaveHistoryByMemberList}">
+									<td th:text="${historyList.memberName}"></td>
 								</tr>
 							</tbody>
 						</table>
