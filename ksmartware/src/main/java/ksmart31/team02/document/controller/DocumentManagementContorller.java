@@ -1,6 +1,7 @@
 package ksmart31.team02.document.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,10 @@ import ksmart31.team02.document.domain.DocumentFormCategory;
 import ksmart31.team02.document.domain.DraftDocument;
 import ksmart31.team02.document.mapper.DocumentFormMapper;
 import ksmart31.team02.document.service.DocumentManagementService;
+import ksmart31.team02.document.domain.ApprovalDocument;
+
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class DocumentManagementContorller {
@@ -57,4 +62,21 @@ public class DocumentManagementContorller {
 		return "admin/documentManagement/documentFormManagement";
 	}
 	
+
+	@GetMapping(value = "/documentApprovalManagement")
+	public String documentApprovalManagement(Model model) {
+		System.out.println("(C)documentApprovalManagement");
+		List<ApprovalDocument> approvalDocumentList = null;
+		/*
+		 * if(approvalDocumentcode != null) { approvalDocumentDetailMap =
+		 * documentManagementService.documentApprovalDetail(approvalDocumentcode);
+		 * model.addAttribute("approvalDocumentDetailMap", approvalDocumentDetailMap); }
+		 */
+		approvalDocumentList = documentManagementService.documentApprovalList();
+		model.addAttribute("approvalDocumentList", approvalDocumentList);
+		
+		return "admin/documentManagement/documentApprovalManagement";			
+	}
+
+
 }
