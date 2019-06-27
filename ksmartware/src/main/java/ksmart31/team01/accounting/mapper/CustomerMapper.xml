@@ -58,5 +58,15 @@
 			,#{memberId})
 	</insert>
 	
+	<!-- member_id 리스트-->
+	<resultMap type="ksmart31.team01.accounting.domain.Member" id="selectMemberIdList">	
+		<result column="member_id" property="memberId"/>
+	</resultMap>
+	<select id="selectMemberIdList"	resultMap="selectMemberIdList">
+		select
+			member_id
+		from member		
+	</select>
+	
 		
 </mapper>  

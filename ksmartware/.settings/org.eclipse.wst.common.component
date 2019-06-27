@@ -1,19 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+<<<<<<< HEAD
         
+=======
+                    
+    
+    
+    
+>>>>>>> branch 'cjh2' of https://github.com/springgroupwareproject/ksmartware.git
     <wb-module deploy-name="ksmartware-0.0.1-SNAPSHOT">
+<<<<<<< HEAD
                 
+=======
+                                        
+        
+        
+        
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+                                        
+        
+        
+        
+>>>>>>> branch 'cjh2' of https://github.com/springgroupwareproject/ksmartware.git
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+<<<<<<< HEAD
                 
+=======
+                                        
+        
+        
+        
+>>>>>>> branch 'cjh2' of https://github.com/springgroupwareproject/ksmartware.git
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+<<<<<<< HEAD
                 
+=======
+                                        
+        
+        
+        
+>>>>>>> branch 'cjh2' of https://github.com/springgroupwareproject/ksmartware.git
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+<<<<<<< HEAD
                 
+=======
+                                        
+        
+        
+        
+>>>>>>> branch 'cjh2' of https://github.com/springgroupwareproject/ksmartware.git
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/annotations"/>
+<<<<<<< HEAD
                 
         <property name="context-root" value="ksmartware"/>
                 
+=======
+                                        
+        
+        
+        
+>>>>>>> branch 'cjh2' of https://github.com/springgroupwareproject/ksmartware.git
         <property name="java-output-path" value="/ksmartware/target/classes"/>
+<<<<<<< HEAD
             
-    </wb-module>
+=======
+        <property name="context-root" value="ksmartware"/>
+                                    
     
+    
+    
+>>>>>>> branch 'cjh2' of https://github.com/springgroupwareproject/ksmartware.git
+    </wb-module>
+<<<<<<< HEAD
+    
+=======
+                
+
+
+
+>>>>>>> branch 'cjh2' of https://github.com/springgroupwareproject/ksmartware.git
 </project-modules>

@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ksmart31.team01.accounting.mapper.AccountMapper;
-import ksmart31.team01.domain.Account;
-import ksmart31.team01.domain.Member;
+import ksmart31.team01.accounting.domain.Account;
+import ksmart31.team01.accounting.domain.Member;
 @Service
 @Transactional
 public class AccountService {
