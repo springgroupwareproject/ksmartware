@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import ksmart31.team01.department.domain.Department;
 import ksmart31.team01.member.domain.Member;
 import ksmart31.team03.leave.domain.LeaveCategory;
 import ksmart31.team03.leave.domain.LeaveHistory;
@@ -28,14 +29,13 @@ public class LeaveHistoryManagementContoller {
 			return "redirect:"+"/login";
 		}else {
 			// 조직도
-			Map<String,Object> returnMap = leaveHistoryManagementService.getDepartmentList(departmentName);	
-			System.out.println("LeaveHistoryManagementContoller.getleaveHistoryManagement [GET] returnMap : "+returnMap);
+			List<Department> recursiveList = leaveHistoryManagementService.getDepartmentList();	
+			System.out.println("LeaveHistoryManagementContoller.getleaveHistoryManagement [GET] recursiveList : "+recursiveList);
 			// 휴가 카테고리 리스트 조회
 			List<LeaveCategory> leaveCategoryList = leaveHistoryManagementService.getLeaveCategoryList();
 			System.out.println("LeaveHistoryManagementContoller.getleaveHistoryManagement [GET] leaveCategoryList : "+leaveCategoryList);
 			
-			model.addAttribute("recursiveList", returnMap.get("recursiveList"));		
-			model.addAttribute("departmentJoinMemberList", returnMap.get("departmentJoinMemberList"));
+			model.addAttribute("recursiveList", recursiveList);		
 			model.addAttribute("leaveCategoryList", leaveCategoryList);
 			return "leave/leaveHistoryManagement";
 		}

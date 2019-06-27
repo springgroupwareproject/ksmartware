@@ -17,6 +17,7 @@ public class LeaveHistory {
 	private String departmentName;
 	private String memberPositionName;
 	private String memberJoinDay;
+	
 	public String getLeaveHistoryCode() {
 		return LeaveHistoryCode;
 	}

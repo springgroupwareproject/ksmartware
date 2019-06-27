@@ -26,10 +26,7 @@ public class LeaveHistoryManagementService {
 	private LeaveHistoryMapper leaveHistoryMapper;
 	
 	//조직도 departmentView.html
-	public Map<String, Object> getDepartmentList(String departmentName){
-		//재귀쿼리 사용한 departmentName 조직도 조회 리스트
-		List<Department> recursiveList = leaveHistoryMapper.selectDepartmentList();
-		System.out.println("LeaveHistoryManagementService.getDepartmentList recursiveList : "+recursiveList);		
+	public List<LeaveHistory> getleaveHistoryByMemberIdList(String departmentName){	
 		// StringUtils.countMatches() -> departmentName중에 -가 포함되어있는 갯수를 보여준다
 		int departmentNumber = StringUtils.countMatches(departmentName, "-"); 
 		System.out.println("LeaveHistoryManagementService.getDepartmentList departmentNumber -갯수 : " + departmentNumber);
@@ -45,31 +42,32 @@ public class LeaveHistoryManagementService {
 		// 특정 부서에 해당하는  memberId 조회(휴가 내역 출력용)
 		String[] memberId = leaveHistoryMapper.selectDepartmentJoinMemberListForLeaveHistory(map);		
 		System.out.println("LeaveHistoryManagementService.getDepartmentList memberId.length : "+memberId.length);
-		// 최종 리턴 값을 담을 맵
-		Map<String, Object> returnMap = new HashMap<String, Object>();
-		// 최종 리턴 값 -조직도
-		returnMap.put("recursiveList", recursiveList);		
+		List<LeaveHistory> leaveHistoryByMemberList = new ArrayList<LeaveHistory>();
 		if(memberId.length > 0) {
 			// String 배열 값 확인
 			for (int i=0; i<memberId.length; i++) {
 				System.out.println("LeaveHistoryManagementService.getDepartmentList memberId : "+memberId[i]);
 			}
-			// String 배열을 ArrayList에 담고 ArrayList를 HashMap에 담는다
+			// String 배열을 ArrayList에 담고
 			ArrayList<String> memberIdList = new ArrayList<String>();
 			for(String item : memberId) {
 				memberIdList.add(item);
 			}
 			System.out.println("LeaveHistoryManagementService.getDepartmentList memberIdList : "+memberIdList);
+			// ArrayList를 HashMap에 담는다
 			Map<String, Object> memberIdMap = new HashMap<String, Object>();
 			memberIdMap.put("memberIdList", memberIdList);
 			System.out.println("LeaveHistoryManagementService.getDepartmentList memberIdMap : "+memberIdMap.get("memberIdList"));
 			// 특정 부서에 해당하는 조직원 휴가 내역 조회
-			List<LeaveHistory> leaveHistoryByMemberList = leaveHistoryMapper.selectLeaveHistoryByMemberList(memberIdMap);
+			leaveHistoryByMemberList = leaveHistoryMapper.selectLeaveHistoryByMemberList(memberIdMap);
 			System.out.println("LeaveHistoryManagementService.getDepartmentList leaveHistoryByMemberList : "+leaveHistoryByMemberList);
-			// 최종 리턴 값 - 휴가 내역 리스트
-			returnMap.put("leaveHistoryByMemberList", leaveHistoryByMemberList);
 		}
-		return returnMap;
+		return leaveHistoryByMemberList;
+	}	
+	//조직도 departmentView.html
+	public List<Department> getDepartmentList(){
+		//재귀쿼리 사용한 departmentName 조직도 조회 리스트
+		return leaveHistoryMapper.selectDepartmentList();
 	}	
 	
 	// 카테고리 리스트 조회

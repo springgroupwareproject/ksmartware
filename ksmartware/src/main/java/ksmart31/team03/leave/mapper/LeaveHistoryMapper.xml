@@ -104,5 +104,6 @@
 				#{item}
 			</foreach>
 		ORDER BY(SUBSTRING_INDEX(leave_category_code,'_',-1)+0)
+		AND member_name
 	</select>
 </mapper>
