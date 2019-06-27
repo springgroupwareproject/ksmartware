@@ -20,30 +20,24 @@ public class LeaveHistoryManagementContoller {
 	@Autowired
 	private LeaveHistoryManagementService leaveHistoryManagementService;
 	
-	/*
-	 * @GetMapping("/leave/leaveHistoryManagement") public String
-	 * getleaveHistoryManagement(HttpSession session, Model model, String
-	 * departmentName) { Member loginMember = (Member)
-	 * session.getAttribute("loginMember"); System.out.
-	 * println("LeaveHistoryManagementContoller.getleaveHistoryManagement [GET] departmentName : "
-	 * +departmentName); if(loginMember == null) { return "redirect:"+"/login";
-	 * }else { // 조직도 Map<String,Object> returnMap =
-	 * leaveHistoryManagementService.getDepartmentList(departmentName); // 휴가 카테고리
-	 * 리스트 조회 List<LeaveCategory> leaveCategoryList =
-	 * leaveHistoryManagementService.getLeaveCategoryList(); System.out.
-	 * println("LeaveHistoryManagementContoller.getleaveHistoryManagement [GET] leaveCategoryList : "
-	 * +leaveCategoryList); // 조직원 아이디별 휴가 내역 조회 List<LeaveHistory> leaveHistoryList
-	 * = leaveHistoryManagementService.getLeaveHistoryByMemberId(loginMember.
-	 * getMemberId()); System.out.
-	 * println("LeaveHistoryManagementContoller.getleaveHistoryManagement [GET] leaveHistoryList : "
-	 * +leaveHistoryList);
-	 * 
-	 * model.addAttribute("recursiveList", returnMap.get("recursiveList"));
-	 * model.addAttribute("departmentJoinMemberList",
-	 * returnMap.get("departmentJoinMemberList"));
-	 * model.addAttribute("leaveCategoryList", leaveCategoryList);
-	 * model.addAttribute("leaveHistoryList", leaveHistoryList);
-	 * 
-	 * return "leave/leaveHistoryManagement"; } }
-	 */
+	@GetMapping("/leave/leaveHistoryManagement")
+	public String getleaveHistoryManagement(HttpSession session, Model model, String departmentName) {
+		Member loginMember = (Member) session.getAttribute("loginMember");
+		System.out.println("LeaveHistoryManagementContoller.getleaveHistoryManagement [GET] departmentName : "+departmentName);
+		if(loginMember == null) {
+			return "redirect:"+"/login";
+		}else {
+			// 조직도
+			Map<String,Object> returnMap = leaveHistoryManagementService.getDepartmentList(departmentName);	
+			System.out.println("LeaveHistoryManagementContoller.getleaveHistoryManagement [GET] returnMap : "+returnMap);
+			// 휴가 카테고리 리스트 조회
+			List<LeaveCategory> leaveCategoryList = leaveHistoryManagementService.getLeaveCategoryList();
+			System.out.println("LeaveHistoryManagementContoller.getleaveHistoryManagement [GET] leaveCategoryList : "+leaveCategoryList);
+			
+			model.addAttribute("recursiveList", returnMap.get("recursiveList"));		
+			model.addAttribute("departmentJoinMemberList", returnMap.get("departmentJoinMemberList"));
+			model.addAttribute("leaveCategoryList", leaveCategoryList);
+			return "leave/leaveHistoryManagement";
+		}
+	}
 }
