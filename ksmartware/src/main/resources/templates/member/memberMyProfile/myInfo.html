@@ -72,46 +72,44 @@
 			
 			<div class="col-10" style="padding-right:20px; border-right: 1px solid #ccc;">
 				<div class="card">
-					<div class="card-header">개인 정보</div>
+					<div class="card-header">인사 정보</div>
 					<div class="card-body" >
 						
-						<div>전화번호</div>
-						<input type="text" style="width:200px" class="form-control" th:value="${memberProfile.memberPhone}">										
+						<div>이메일</div>
+						<div th:text="${memberInfo.memberId}"></div>										
 						<hr>
 						
-						<div>휴대전화</div>
-							<input type="text" style="width:200px" class="form-control" th:value="${memberProfile.memberMobile}">
-						<div>
+						<div>소속 부서</div>
+							<div class="input-group">
+								<div th:text="${memberInfo.departmentCategoryName}"></div>
+								<div th:if="${memberInfo.departmentDivisionName != ''}" th:text="|&nbsp; > ${memberInfo.departmentDivisionName}|"></div>
+								<div th:if="${memberInfo.departmentSectionName != ''}" th:text="|&nbsp; > ${memberInfo.departmentSectionName}|"></div>
+							</div>
 						<hr>
 						
-						<div>주소</div>
-						<textarea style="width:700px;" class="form-control" th:placeholder="|현재 주소 : ${memberProfile.memberAddress}|" ></textarea>
+						<div>직위/직책</div>
+							<div th:text="${memberInfo.memberPositionName}"></div>
 						<hr>
 						
-						<div>
-							<div>생년월일</div>
-							<input type="text" style="width:200px" class="form-control" th:value="${memberProfile.memberBirth}">
-							<hr>
-						</div>
+						<div>조직원 상태</div>
+							<div th:text="${memberInfo.memberStatus}"></div>
+						<hr>
 						
-						<div>
-							<div>성별</div>
-							<!-- th:if="${memberProfile.memberGender}"  -->
-							<select style="width:65px" class="form-control">
-								<option>남</option>
-								<option>여</option>
-							</select>
-						</div>
+						<div>권한</div>
+							<div th:text="${memberInfo.memberLevelTitle}"></div>
+						<hr>
 						
-					</div>
-					<br>
-					<div>
-						<button>저장</button>
+						<div>사번</div>
+							<div th:text="${memberInfo.memberEmployeeCode}"></div>
+						<hr>
+						
+						<div>입사일</div>
+							<div th:text="${memberInfo.memberJoinDay}"></div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>	
+
 			
 		
 	</th:block>

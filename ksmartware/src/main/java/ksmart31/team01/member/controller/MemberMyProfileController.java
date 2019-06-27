@@ -20,16 +20,21 @@ public class MemberMyProfileController {
 		System.out.println("마이 프로필 매서드 실행.");
 		System.out.println("접속자 정보 확인중...");
 		
-		  //세션에담긴값 맴버vo로 담음 
+		  //세션에담긴값 맴버vo로 담음 Member member = (Member)
 		  Member member = (Member) session.getAttribute("loginMember"); 
-		  if(member == null) { // 미로그인시 세션없으므로 로그인페이지 이동
-		  System.out.println("PersonnelSetUpController.memberLevel session=null");
-		  return "redirect:"+"/login"; }
+		  
+		  if(member.getMemberId() == null) { // 미로그인시 세션없으므로  로그인페이지 이동
+		 	 System.out.println("아이디 확인불가");
+		  		return "redirect:"+"/login"; 
+		  }
+		  
 		  System.out.println(member.getMemberName()+"님 확인");
 		  
 		  String memberId = member.getMemberId(); 
 		  Member memberProfile = memberMyProfileService.myProfile(memberId);
+		  System.out.println("ksmart31.team01.member.controller.MemberMyProfileController. myProfile() memberProfile : "+ memberProfile);
 		  model.addAttribute("memberProfile", memberProfile);
+		 
 		 
 				
 		return "/member/memberMyProfile/myProfile";

@@ -26,6 +26,9 @@ public class Member {
 	private String memberDate;
 	private String memberPw;
 	private String memberRegistantDate;
+	private String memberGender;
+	
+	
 	public String getMemberCode() {
 		return memberCode;
 	}
@@ -170,6 +173,13 @@ public class Member {
 	public void setMemberRegistantDate(String memberRegistantDate) {
 		this.memberRegistantDate = memberRegistantDate;
 	}
+	public String getMemberGender() {
+		return memberCode;
+	}
+	public void setMemberGender(String memberGender) {
+		this.memberGender = memberGender;
+	}
+	
 	@Override
 	public String toString() {
 		return "Member [memberCode=" + memberCode + ", memberId=" + memberId + ", memberName=" + memberName
@@ -182,8 +192,11 @@ public class Member {
 				+ ", memberStatus=" + memberStatus + ", memberWork=" + memberWork + ", memberFormOfEmployment="
 				+ memberFormOfEmployment + ", memberPhone=" + memberPhone + ", memberMobile=" + memberMobile
 				+ ", memberAddress=" + memberAddress + ", memberBirth=" + memberBirth + ", memberDate=" + memberDate
-				+ ", memberPw=" + memberPw + ", memberRegistantDate=" + memberRegistantDate + "]";
+				+ ", memberPw=" + memberPw + ", memberRegistantDate=" + memberRegistantDate + ", memberGender="
+				+ memberGender + "]";
 	}
+	
+	
 	
 	
 }

@@ -6,14 +6,14 @@
 	<!-- myProfile 개인정보 -->
 	<resultMap type="ksmart31.team01.member.domain.Member" id="myProfile">	
 				<!-- db컬럼 -->		<!-- domain 데이터변수명 -->
-		<result column="member_id" property="memberId"/>
+		<result column="member_phone" property="memberPhone"/>
 		<result column="member_mobile" property="memberMobile"/>
 		<result column="member_address" property="memberAddress"/>
 		<result column="member_birth" property="memberBirth"/>
 		<result column="member_gender" property="memberGender"/>
 
 	</resultMap>
-	<select id="myProfile" resultMap="myProfile" >
+	<select id="myProfile" resultMap="myProfile">
 		SELECT 
 			member_phone,
 			member_mobile,
