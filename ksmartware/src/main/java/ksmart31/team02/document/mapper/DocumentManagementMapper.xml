@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="ksmart31.team02.document.mapper.DocumentManagementMapper">
+	<!-- 기안문서 삭제 -->
+	<delete id="deleteDraftDocument"
+			parameterType="ksmart31.team02.document.domain.DraftDocument">
+		DELETE FROM draft_document 
+		WHERE draft_document_code=#{draftDocumentCode}
+	</delete>
+
+	<!-- 기안문서 조회(워크플로우 문서 관리) -->
+	<select id="selectDraftDocument"
+			resultType="ksmart31.team02.document.domain.DraftDocument">
+		SELECT draft_document_code AS draftDocumentCode
+			, draft_document_file_save_name AS draftDocumentFileSaveName
+			, draft_document_status AS draftDocumentStatus
+			, draft_document_final_approval_member_name AS draftDocumentFinalApprovalMemberName
+			, draft_document_final_approval_date AS draftDocumentFinalApprovalDate
+			, draft_document_member_id AS draftDocumentMemberId
+			, draft_document_member_name AS draftDocumentMemberName
+			, draft_document_date AS draftDocumentDate
+		FROM draft_document
+	</select>
+
+	<!-- 관리자 결재선 관리(공통프로세스 목록) -->
+	<select id="selectApprovalProcess"
+			resultType="ksmart31.team02.document.domain.ApprovalProcess">
+		SELECT approval_process_code AS approvalProcessCode
+			, approval_process_name AS approvalProcessName
+		FROM approval_process
+	</select>
+</mapper>
