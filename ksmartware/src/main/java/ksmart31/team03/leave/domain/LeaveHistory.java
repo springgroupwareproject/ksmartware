@@ -16,6 +16,7 @@ public class LeaveHistory {
 	private String memberName;
 	private String departmentName;
 	private String memberPositionName;
+	private String memberJoinDay;
 	public String getLeaveHistoryCode() {
 		return LeaveHistoryCode;
 	}
@@ -106,6 +107,12 @@ public class LeaveHistory {
 	public void setMemberPositionName(String memberPositionName) {
 		this.memberPositionName = memberPositionName;
 	}
+	public String getMemberJoinDay() {
+		return memberJoinDay;
+	}
+	public void setMemberJoinDay(String memberJoinDay) {
+		this.memberJoinDay = memberJoinDay;
+	}
 	@Override
 	public String toString() {
 		return "LeaveHistory [LeaveHistoryCode=" + LeaveHistoryCode + ", memberId=" + memberId + ", leaveCategorySort="
@@ -115,7 +122,6 @@ public class LeaveHistory {
 				+ leaveHistoryRemainingHour + ", leaveHistoryRemainingDay=" + leaveHistoryRemainingDay
 				+ ", leaveHistoryDate=" + leaveHistoryDate + ", memberEmployeeCode=" + memberEmployeeCode
 				+ ", memberName=" + memberName + ", departmentName=" + departmentName + ", memberPositionName="
-				+ memberPositionName + "]";
+				+ memberPositionName + ", memberJoinDay=" + memberJoinDay + "]";
 	}
-	
 }	
