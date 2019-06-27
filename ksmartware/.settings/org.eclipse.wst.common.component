@@ -1,68 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
 <<<<<<< HEAD
+<<<<<<< HEAD
         
 =======
                     
+=======
+                        
+    
+>>>>>>> branch 'master' of https://github.com/springgroupwareproject/ksmartware.git
     
     
     
 >>>>>>> branch 'cjh2' of https://github.com/springgroupwareproject/ksmartware.git
     <wb-module deploy-name="ksmartware-0.0.1-SNAPSHOT">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 
 =======
                                         
+=======
+                                                
+>>>>>>> branch 'master' of https://github.com/springgroupwareproject/ksmartware.git
         
-        
-        
-        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
-                                        
         
         
         
 >>>>>>> branch 'cjh2' of https://github.com/springgroupwareproject/ksmartware.git
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 
 =======
                                         
+=======
+                                                
+        
+>>>>>>> branch 'master' of https://github.com/springgroupwareproject/ksmartware.git
         
         
         
 >>>>>>> branch 'cjh2' of https://github.com/springgroupwareproject/ksmartware.git
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 
 =======
                                         
+=======
+                                                
+        
+>>>>>>> branch 'master' of https://github.com/springgroupwareproject/ksmartware.git
         
         
         
 >>>>>>> branch 'cjh2' of https://github.com/springgroupwareproject/ksmartware.git
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 
 =======
                                         
+=======
+                                                
+        
+>>>>>>> branch 'master' of https://github.com/springgroupwareproject/ksmartware.git
         
         
         
 >>>>>>> branch 'cjh2' of https://github.com/springgroupwareproject/ksmartware.git
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/annotations"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 
         <property name="context-root" value="ksmartware"/>
                 
 =======
                                         
+=======
+                                                
+        
+>>>>>>> branch 'master' of https://github.com/springgroupwareproject/ksmartware.git
         
         
         
 >>>>>>> branch 'cjh2' of https://github.com/springgroupwareproject/ksmartware.git
         <property name="java-output-path" value="/ksmartware/target/classes"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
             
 =======
+=======
+                
+        <property name="context-root" value="ksmartware"/>
+                                            
+    
+    
+    
+=======
+                    
+>>>>>>> branch 'master' of https://github.com/springgroupwareproject/ksmartware.git
+    
+<<<<<<< HEAD
+    </wb-module>
+                    
+
+=======
+    
+    
+    <wb-module deploy-name="ksmartware-0.0.1-SNAPSHOT">
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/annotations"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-test-sources"/>
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp"/>
+                                        
+        
+        
+        
+        <property name="java-output-path" value="/ksmartware-master-clone/target/classes"/>
+>>>>>>> branch 'master' of https://github.com/springgroupwareproject/ksmartware.git
         <property name="context-root" value="ksmartware"/>
                                     
     
@@ -74,6 +131,7 @@
     
 =======
                 
+>>>>>>> branch 'master' of https://github.com/springgroupwareproject/ksmartware.git
 
 
 
