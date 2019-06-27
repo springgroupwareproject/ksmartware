@@ -7,66 +7,57 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ksmart31.team02.document.domain.ApprovalDocument;
-import ksmart31.team02.document.domain.ApprovalMember;
-import ksmart31.team02.document.domain.DisbursementDocument;
-import ksmart31.team02.document.domain.DocumentAttachedFile;
-import ksmart31.team02.document.domain.DocumentOpinion;
-import ksmart31.team02.document.domain.LeaveApplication;
-import ksmart31.team02.document.domain.ProjectDisbursement;
-import ksmart31.team02.document.domain.ProjectReport;
-import ksmart31.team02.document.domain.PurchaseRequisition;
+import ksmart31.team02.document.domain.ApprovalProcess;
+import ksmart31.team02.document.domain.DocumentForm;
+import ksmart31.team02.document.domain.DocumentFormCategory;
+import ksmart31.team02.document.domain.DraftDocument;
 import ksmart31.team02.document.mapper.DocumentManagementMapper;
 
 @Service
 public class DocumentManagementService {
-	@Autowired
-	DocumentManagementMapper documentManagementMapper;
-	// 관리자 문서통합 관리(리스트)
-	public List<ApprovalDocument> documentApprovalList() {
-		List<ApprovalDocument> documentApprovalList = documentManagementMapper.selectDocuemntApprovalList();
-		return documentApprovalList; 
+	@Autowired private DocumentManagementMapper documentManagementMapper;
 	
-	}
-	// 문서통합  관리 -> 문서별 상세 데이터 확인(모든양식)
-		public Map<String, Object> documentApprovalDetail(String approvalDocumentCode) {			
-			//문서입력 데이터
-			Map<String, Object> approvalDocumentDetailMap = new HashMap<String, Object>();
-			
-			String documentFormTitle = documentManagementMapper.selectDocumentFormTitleByApprovalDocumentCode(approvalDocumentCode);
-			if(documentFormTitle.contains("구매요청서")) {
-				List<PurchaseRequisition> purchaseRequisitionList = documentManagementMapper.selectPurchaseRequisitionDetail(approvalDocumentCode);
-				approvalDocumentDetailMap.put("purchaseRequisitionList", purchaseRequisitionList);
-			}else if(documentFormTitle.contains("지출결의서")) {
-				List<DisbursementDocument> disbursementDocumentList = documentManagementMapper.selectDisbursementDocumentDetail(approvalDocumentCode);
-				approvalDocumentDetailMap.put("disbursementDocumentList", disbursementDocumentList);
-			}else if(documentFormTitle.contains("휴가신청서")) {
-				List<LeaveApplication> leaveApplicationList= documentManagementMapper.selectLeaveApplicationDetail(approvalDocumentCode);
-				approvalDocumentDetailMap.put("leaveApplicationList", leaveApplicationList);
-			}else if(documentFormTitle.contains("프로젝트 업무보고")) {	
-				List<ProjectReport> projectReportList = documentManagementMapper.selectProjectReportDetail(approvalDocumentCode);
-				approvalDocumentDetailMap.put("projectReportList", projectReportList);
-			}else if(documentFormTitle.contains("프로젝트 지출결의서")) {
-				List<ProjectDisbursement> projectDisbursementList = documentManagementMapper.selectProjectDisbursementDetail(approvalDocumentCode);
-				approvalDocumentDetailMap.put("projectDisbursementList", projectDisbursementList);
-			}
-			//문서별 프로세스 정보	
-			List<ApprovalMember> approvalMemberList = documentManagementMapper.selectApprovalDocumentApprovalProcess(approvalDocumentCode);
-			
-			//문서별 첨부파일 정보
-			List<DocumentAttachedFile> documentAttachedFile = documentManagementMapper.selectApprovalDocumentAttachedFile(approvalDocumentCode);
-						
-			//문서별 의견 정보
-			List<DocumentOpinion> documentOpinion = documentManagementMapper.selectApprovalDocumentOpinion(approvalDocumentCode);
-			
-			approvalDocumentDetailMap.put("approvalMemberList", approvalMemberList); //문서상세  결재 프로세스
-			approvalDocumentDetailMap.put("documentAttachedFile", documentAttachedFile); //문서상세 첨부파일
-			approvalDocumentDetailMap.put("documentOpinion", documentOpinion); // 문서상세 의견
-			approvalDocumentDetailMap.put("documentFormTitle", documentFormTitle); //문서양식
-			
-			return approvalDocumentDetailMap;
-		}
-}
-
-
+	/*
+	// 문서양식 목록(페이징)
+	public Map<String, Object> getDocumentForm(int currentPage) {
+		int ROW_PER_PAGE = 1;
+		int beginRow = (currentPage - 1)*ROW_PER_PAGE;
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("beginRow", beginRow);
+		map.put("rowPerPage", ROW_PER_PAGE);
 		
+		List<DocumentForm> documentFormList = documentManagementMapper.selectDocumentForm(map);
+		System.out.println("(S) getDocumentForm documentFormList:"+documentFormList);
+		
+		int documentManagementCount = documentManagementMapper.selectDocumentFormCount();
+		
+		int lastPage = documentManagementCount/ROW_PER_PAGE;
+		if(documentManagementCount/ROW_PER_PAGE != 0 ) {
+			lastPage++;
+		}
+		
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		returnMap.put("documentFormList", documentFormList);
+		returnMap.put("lastPage", lastPage);
+		returnMap.put("documentManagementCount", documentManagementCount);
+		returnMap.put("currentPage", currentPage);
+		return returnMap;
+	}
+	 */
+	
+	// 기안문서 조회(워크플로우 문서 관리)
+	public List<DraftDocument> getDraftDocument() {
+		System.out.println("(S) getDraftDocument() 실행");
+		List<DraftDocument> list = documentManagementMapper.selectDraftDocument();
+		System.out.println("(S) getDraftDocument() list : "+ list);
+		return list;
+	}
+
+	// 관리자 결재선 관리(공통프로세스 목록)
+	public List<ApprovalProcess> getApprovalProcess() {
+		System.out.println("(S) getApprovalProcess() 실행");
+		List<ApprovalProcess> list = documentManagementMapper.selectApprovalProcess();
+		System.out.println("(S) getApprovalProcess() list : " + list);
+		return list;
+	}
+}

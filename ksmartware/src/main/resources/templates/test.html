@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+		<div class="row">
+			<div class="col-xl-2 col-md-6">
+				<div class="card table-card">
+					<div class="card-header">
+						<h3>문서양식분류</h3>
+					</div>
+					<div class="card-block">
+						<div class="table-responsive">
+							<table class="table table-hover mb-0">
+								<tbody>
+									<tr th:each="list : ${list}">
+										<td class = "documentFormCategory">
+											<a th:value="${list.documentFormCategoryCode}" href="#">
+												<th:block th:text="${list.documentFormCategoryName}"></th:block>
+											</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-8 col-md-6">
+				<div class="card table-card">
+					<div class="card-header">
+						<h3>문서양식 목록</h3>
+					</div>
+					<div class="card-block">
+						<div class="table-responsive">
+							<table class="table table-hover mb-0">
+								<thead>
+						            <tr>
+						            	<th></th>
+			                			<th>문서 카테고리</th>
+						                <th>제목</th>
+						                <th>등록일</th>
+						            </tr>
+						        </thead>
+								<tbody id="documentFormList">
+						        </tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+</html>
